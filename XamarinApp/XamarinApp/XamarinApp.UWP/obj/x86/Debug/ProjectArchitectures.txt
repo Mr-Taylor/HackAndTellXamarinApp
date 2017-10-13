@@ -1,0 +1,2 @@
+C:\Users\Kurtt\Documents\HackAndTell\XamarinApp\XamarinApp\XamarinApp.UWP\XamarinApp.UWP.csproj;x86
+C:\Users\Kurtt\Documents\HackAndTell\XamarinApp\XamarinApp\XamarinApp\XamarinApp.csproj;neutral

@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XamarinApp.Views.EmployeeListView"
+             Title="{Binding Title}">
+    <ContentPage.Content>
+        <StackLayout Padding="10">
+            <ListView
+                x:Name="EmployeeList"
+                ItemsSource="{Binding Employees}"
+                VerticalOptions="FillAndExpand"
+				ItemSelected="OnItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ImageCell 
+                            Text="{Binding FullName}"
+                            Detail="{Binding JobTitle}" 
+                            ImageSource="{Binding ImgSource}"
+                            TextColor="Black"
+                            DetailColor="Gray"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

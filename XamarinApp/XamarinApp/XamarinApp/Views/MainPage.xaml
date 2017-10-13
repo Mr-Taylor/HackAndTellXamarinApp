@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:XamarinApp"
+             x:Class="XamarinApp.MainPage">
+
+    <StackLayout Padding="10" HorizontalOptions="Center" VerticalOptions="Center">
+        
+        <Label Text="Capfin" FontSize="Large" HorizontalTextAlignment="Center"/>
+        <Label Text="Software Development" FontSize="Large" HorizontalTextAlignment="Center"/>
+        <Label Text="HubCap Mobile" FontSize="Medium" HorizontalTextAlignment="Center"/>
+
+        <Image Source="CapfinLogo.png" Aspect="AspectFit" WidthRequest="300" HeightRequest="300"/>
+
+        <Button x:Name="BtnAll" Text="View All" Clicked="BtnAll_Clicked" WidthRequest="200" HorizontalOptions="CenterAndExpand"/>
+        <Button x:Name="BtnLeads" Text="View Team Leads" Clicked="BtnLeads_Clicked" WidthRequest="200" HorizontalOptions="CenterAndExpand"/>
+        <Button x:Name="BtnManager" Text="View Manager" Clicked="BtnManager_Clicked" WidthRequest="200" HorizontalOptions="CenterAndExpand"/>
+    </StackLayout>
+</ContentPage>

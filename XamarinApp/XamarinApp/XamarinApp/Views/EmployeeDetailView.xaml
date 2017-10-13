@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XamarinApp.Views.EmployeeDetailView"
+             Title="{Binding Employee.FullName}">
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical">
+            <StackLayout Padding="10">
+                <Grid VerticalOptions="FillAndExpand">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="250"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="250"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Image Source="{Binding Employee.LargeImgSource}" WidthRequest="300" HeightRequest="250" Grid.Row="0" Grid.ColumnSpan="2"></Image>
+
+                    <Label Text="Job Title" FontSize="Small" Grid.Row="1" Grid.Column="0"/>
+                    <Label Text="{Binding Employee.JobTitle}" FontSize="Small" Grid.Row="1" Grid.Column="1"/>
+
+                    <Label Text="Email" FontSize="Small" Grid.Row="2" Grid.Column="0"/>
+                    <Label Text="{Binding Employee.Email}" FontSize="Small" Grid.Row="2" Grid.Column="1"/>
+
+                    <Label Text="Team" FontSize="Small" Grid.Row="3" Grid.Column="0"/>
+                    <Label Text="{Binding Employee.Team}" FontSize="Small" Grid.Row="3" Grid.Column="1"/>
+
+                    <Label Text="Reports To" FontSize="Small" Grid.Row="4" Grid.Column="0"/>
+                    <Label Text="{Binding Employee.ReportsTo}" FontSize="Small" Grid.Row="4" Grid.Column="1"/>
+
+                    <Label x:Name="LblMembers" Text="Team Members" HorizontalTextAlignment="Center" FontSize="Medium" Grid.Row="5" Grid.ColumnSpan="2"/>
+
+                    <ListView
+                    HeightRequest="250"
+                    Grid.Row="6" 
+                    Grid.ColumnSpan="2"
+                    x:Name="EmployeeList"
+                    ItemsSource="{Binding TeamMembers}"
+                    VerticalOptions="FillAndExpand"
+				    ItemSelected="OnItemSelected">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ImageCell 
+                                Text="{Binding FullName}"
+                                Detail="{Binding JobTitle}" 
+                                ImageSource="{Binding ImgSource}"
+                                TextColor="Black"
+                                DetailColor="Gray"/>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+
+                </Grid>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

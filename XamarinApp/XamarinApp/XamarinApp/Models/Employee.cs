@@ -18,6 +18,5 @@ namespace XamarinApp.Models
         public string LargeImgSource { get; set; }
 
         public string FullName => Name + " " + Surname;
-
     }
 }

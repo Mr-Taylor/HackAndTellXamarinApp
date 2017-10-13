@@ -38,9 +38,11 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Contracts\IEmployeeService.cs" />
     <Compile Include="JobTitleType.cs" />
     <Compile Include="Repositories\EmployeeRepository.cs" />
     <Compile Include="Contracts\IEmployeeRepository.cs" />
+    <Compile Include="Services\EmployeeService.cs" />
     <Compile Include="ViewModels\EmployeeDetailViewModel.cs" />
     <Compile Include="ViewModels\EmployeeListViewModel.cs" />
     <Compile Include="Views\EmployeeDetailView.xaml.cs">

@@ -4,7 +4,9 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using XamarinApp.Contracts;
 using XamarinApp.Models;
+using XamarinApp.Services;
 
 namespace XamarinApp.ViewModels
 {
@@ -14,24 +16,24 @@ namespace XamarinApp.ViewModels
 
         public string Title { get; set; }
 
-        private readonly IEmployeeRepository employeeRepository;
+        private readonly IEmployeeService employeeService;
         public EmployeeListViewModel(JobTitleType type)
         {
-            employeeRepository = new EmployeeRepository();
+            employeeService = new EmployeeService();
 
             if (type == JobTitleType.All)
             {
-                Employees = employeeRepository.GetAllEmployees().OrderBy(x => x.Surname).ToList();
+                Employees = employeeService.GetAllEmployees().OrderBy(x => x.Surname).ToList();
                 Title = "All";
             }
             if (type == JobTitleType.Lead)
             {
-                Employees = employeeRepository.GetAllEmployees().Where(x => x.JobTitle == "Team Lead").OrderBy(x => x.Surname).ToList();
+                Employees = employeeService.GetEmployeesByJobTitleType("Team Lead").ToList();
                 Title = "Team Leads";
             }
             if (type == JobTitleType.Manager)
             {
-                Employees = employeeRepository.GetAllEmployees().Where(x => x.JobTitle == "Software Development Manager").OrderBy(x => x.Surname).ToList();
+                Employees = employeeService.GetEmployeesByJobTitleType("Software Development Manager").ToList();
                 Title = "Captain";
             }
         }

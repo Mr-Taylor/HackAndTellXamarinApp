@@ -4,7 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using XamarinApp.Contracts;
 using XamarinApp.Models;
+using XamarinApp.Services;
 
 namespace XamarinApp.ViewModels
 {
@@ -13,14 +15,14 @@ namespace XamarinApp.ViewModels
         public Employee Employee { get; set; }
         public List<Employee> TeamMembers { get; set; } = new List<Employee>();
 
-        private readonly IEmployeeRepository employeeRepository;
+        private readonly IEmployeeService employeeService;
 
         public EmployeeDetailViewModel(Employee employee)
         {
-            employeeRepository = new EmployeeRepository();
+            employeeService = new EmployeeService();
 
             Employee = employee;
-            TeamMembers = employeeRepository.GetAllEmployees().Where(x => x.ReportsTo == employee.Name).ToList();
+            TeamMembers = employeeService.GetEmployeesByReportTo(employee.Name).ToList();
         }
     }
 }
